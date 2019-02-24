@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>simple joke API test</title>
+</head>
+<body>
+    <a>here comes another joke</a>
+    <button onclick="displayJoke()">click</button>
+    <div id="jokeContainer"></div>
+    <script type="text/javascript">
+    function displayJoke(){
+        var request= new XMLHttpRequest();
+        request.open('GET', "http://api.icndb.com/jokes/random");
+        request.responseType = 'text';
+        request.onload = function(response){
+            var jokeObject = JSON.parse(request.response);
+            document.getElementById("jokeContainer").innerHTML=jokeObject.value.joke;  
+            }
+        request.send();
+    }
+    </script>
+</body>
