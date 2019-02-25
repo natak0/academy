@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>simple joke API test</title>
+</head>
+<body>
+    <a>here comes another joke made with promises</a>
+    <button onclick="displayJoke()">click</button>
+    <div id="jokeContainer"></div>
+    <script type="text/javascript">
+    //var jokeDisplay = document.getElementById("jokeContainer").innerHTML;
+    var jokeDisplay = document.querySelector('div');
+    function displayJoke(){
+        fetch("http://api.icndb.com/jokes/random").then(function(response){
+            return response.text();
+            }).then(function(text){
+                var jokeObject = JSON.parse(text);
+                jokeDisplay.textContent=jokeObject.value.joke;
+            })
+    }       
+    </script>
+</body>
