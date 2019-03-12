@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ghibli Movie API test</title>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <a>Ghibli Movies</a>
+    <button onclick="displayMovie()">click</button>
+
+     <section id="product-container-grid">
+    </section>
+
+
+    <script type="text/javascript">
+    //var jokeDisplay = document.getElementById("jokeContainer").innerHTML;
+    function createContainer() {
+        // var product = document.createElement("div");
+        // product.className += " product-grid";
+        // product.id = "product-grid";
+        // var movieTitle = document.createElement("p");
+        // movieTitle.className += " product-title";
+        // var movieDesc = document.createElement("p");
+        // movieDesc.className += " product-desc";
+        // product.appendChild(movieTitle);
+        // product.appendChild(movieDesc);
+        // document.getElementById('product-container-grid').appendChild(product);
+    }
+    function displayMovie(){
+
+        fetch("https://ghibliapi.herokuapp.com/films")
+            .then(response => response.json())
+            // .then(json =>console.log(JSON.stringify(json))) 
+            .then(json =>{
+                
+                // var container=document.getElementById('product-grid');
+                for (var item in json){
+                    var movie= json[item];
+                    // console.log(movie.title)
+                    //create new div
+                    var container = document.createElement("div");
+                    container.className += " product-grid";
+                    container.id = "product-grid";
+                    document.getElementById('product-container-grid').appendChild(container);
+                    var movieTitle = document.createElement("p");
+                    movieTitle.className += " product-title";
+                    var movieDesc = document.createElement("p");
+                    movieDesc.className += " product-desc";
+                    container.appendChild(movieTitle);
+                    container.appendChild(movieDesc);
+                    document.getElementById('product-container-grid').appendChild(container);
+                    //add text into it
+                    var newTitle = document.createTextNode(movie.title); 
+                    movieTitle.appendChild(newTitle);
+                    var newDesc = document.createTextNode(movie.description);
+                    movieDesc.appendChild(newDesc);
+                    //put new div below container
+                    container.appendChild(movieTitle);
+                    container.appendChild(movieDesc);
+
+                }          
+
+        })
+        
+            }
+     
+    </script>
+</body>
