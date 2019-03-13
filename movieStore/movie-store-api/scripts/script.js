@@ -3,15 +3,9 @@ function getPoster(searchTitle, image){
                         fetch("http://www.omdbapi.com/?t="+searchTitle+"&apikey=3f7b97cf")
                             .then(response => response.json())
                             .then(json =>{
-                                //return moviePoster;
                                 let str = json.Poster;
-                                 //var a = document.querySelectorAll('.product-poster');
                                 var a = document.querySelectorAll('.product-title');
                                     image.src=str;
-                                // for (var i = 0; i < a.length; i++){
-                                //     if (a[i].textContent === json.Title) {
-                                //         document.querySelectorAll('.product-poster')[i].setAttribute("src", str);
-                                //     }
                                 }
                         )
                         }
