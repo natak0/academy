@@ -1,6 +1,6 @@
 //get a poster image from imdb api
-function getPoster(searchTitle, image){
-                        fetch("http://www.omdbapi.com/?t="+searchTitle+"&apikey=3f7b97cf")
+function getPoster(searchTitle, image) {
+    fetch("http://www.omdbapi.com/?t=" + searchTitle + "&apikey=3f7b97cf")
                             .then(response => response.json())
                             .then(json =>{
                                 let str = json.Poster;
@@ -56,4 +56,43 @@ fetch("https://ghibliapi.herokuapp.com/films")
                 }          
 
         })
+       
+document.addEventListener("DOMContentLoaded", function(event) {
+document.getElementById("drop-1").addEventListener("click",function(e) {
+   
+    })
+})
+                          
+//document.addEventListener("DOMContentLoaded", function(event) {
+//document.getElementById("drop-1").addEventListener("click", 
+function randomList(){
+    var list = document.querySelectorAll('.product-grid');
+    //get an array from DOM nodelist
+    var arr = Array.prototype.slice.call(list);
+    var currentIndex = arr.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+    //random index element
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    //interchange the values for new random values
+    temporaryValue = arr[currentIndex];
+    arr[currentIndex] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue; 
+        
+  }
+    //add random divs to the grid
+    for(var i = 0; i < arr.length; i++){
+        document.querySelector('#product-container-grid').appendChild(arr[i]);
+    }}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+document.querySelector(".dropdown").addEventListener("click",function(e) {
+	// call the function to get a random list of movies
+  if (e.target && e.target.matches("a#drop-1")) {
+      randomList();
+	}
+});
+})
+
+
 
