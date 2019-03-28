@@ -39,7 +39,7 @@ console.log(nameMap);
 
 
 //4 create a full name array with a space separator
-var surname = ['K','o','r','o','l','e','v','a'];
+var surname = ['S','u','r','n','a','m','e'];
 var fullname = [];
 var sep = [' '];
 fullname = Array.from(myname);

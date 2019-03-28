@@ -12,12 +12,10 @@
 }
 
 .form-car, .form-wheel {
+
 	padding: 0.2em;
 	display: inherit;
-	
-	
-	
-}
+}	
 
 .btn{
 	padding: 0.3em 1em 0.3em 1em;
