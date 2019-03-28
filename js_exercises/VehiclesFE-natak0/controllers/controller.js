@@ -1,30 +1,34 @@
-window.app={clicks:0};
+window.app={};
 //if add a wheel button clicked
 document.getElementById('wheelBtn').addEventListener('click', function (event) {
 				var car= window.app.car;
 				clicks=window.app.clicks;
-				var wheelDiameter = document.getElementById("diameter").value;
+				var wheelDiameter = parseFloat(document.getElementById("diameter").value);
+				//console.log(wheelDiameter);
 				if ((wheelDiameter>=0.4) & (wheelDiameter <= 2)){
 					document.getElementById('wheel').style.display = "inline";
-					var brand = document.getElementById("brand").value;
+					var brand = document.getElementById("wheelBrand").value;
 					var wheel =new Wheel(wheelDiameter, brand);
-					car.addWheel(wheel);
-					var divWheel = document.getElementById('wheelInfo');
-					if (car.wheels.length<=4){
-						divWheel.innerHTML += car.wheels.length + ". " + wheel.toString();
+					
+					
+					if (car.wheels.length<4){
+						car.addWheel(wheel);
+						var divWheel = document.getElementById('wheelInfo');
+						//divWheel.innerHTML += car.wheels.length + ". " + wheel.toString();
+						divWheel.innerHTML += car.wheels.length + ". "+ "Diameter is "+wheelDiameter+ " and brand is "+brand + "<br>";
+							//console.log(car.wheels.length);
 					}else{
 						alert("A car cannot have more than 4 wheels!");
 					}
 						
 				}else{
-			alert("A diameter of the wheel must be between 0.4 and 2.");
+					alert("A diameter of the wheel must be between 0.4 and 2.");
 		}
 		
 });
 
-
-
 function createCar() {
+	//check if the number plate has 4 letters and 3 numbers
     var plate = checkPlate();
 	if (plate) {
 			
@@ -40,7 +44,7 @@ function createCar() {
 					        
 }	
 }
-
+//function to check the format of Spanish number plate
 function checkPlate(){
 	var plate = document.getElementById("plate").value;
 	var regex1 = /^\d{4}\s{0}[A-Za-z]{3}/;
