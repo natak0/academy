@@ -1,0 +1,25 @@
+.container{
+	display: grid;
+	grid-template-rows: 25% 25%;
+	grid-template-columns: 30% auto;
+	margin: 1em 2em auto;
+}
+.container > div{
+	padding: 1em;
+}
+#wheel {
+	display: none;
+}
+
+.form-car, .form-wheel {
+	padding: 0.2em;
+	display: inherit;
+	
+	
+	
+}
+
+.btn{
+	padding: 0.3em 1em 0.3em 1em;
+	max-width: 100px;
+}
