@@ -1,0 +1,66 @@
+@import 'specialeffects';
+
+$font-stack:    'Lato', sans-serif;
+$primary-color: #FFF;
+
+%stripe-shared {
+  top:0;
+  width:20%;
+  padding: 10px;
+  margin: 0 auto; 
+}
+
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+	margin: 0 auto;
+}
+
+.stripe-container {
+	
+   width: 100%;
+	min-height: 100%;
+   	display: flex;
+   	flex-direction: row;
+	align-items: stretch;
+	position: fixed;
+	
+	@at-root {
+    .stripe:nth-child(1) { background-color: #244F75;
+		H1:before{
+			content:"CIAO";
+		}}
+    .stripe:nth-child(2) { background-color: #60BFBF; 
+		H1:before{
+			content:"HOLA";
+		}}
+	.stripe:nth-child(3) { background-color: #8C4B7E; 
+		H1:before{
+			content:"HELLO";
+		}}
+    .stripe:nth-child(4) { background-color: #F8BB44;
+		H1:before{
+			content:"BONJOUR";
+		}}
+    .stripe:nth-child(5) { background-color: #F24B4B; 
+		H1:before{
+			content:"ПРИВЕТ";
+		}}
+	}
+
+  .stripe {
+	@extend %stripe-shared;
+  }
+	H1{
+	 text-align: center;
+     margin: 0;
+     position: relative;
+     top: 50%;
+	}	
+}
+
+
+
+
+
